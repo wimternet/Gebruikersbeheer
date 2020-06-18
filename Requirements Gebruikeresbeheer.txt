@@ -1,0 +1,6 @@
+Te installeren voor deze module:
+- Microsoft Azure Active Directory Module for Windows PowerShell
+-- via PowerShellGet --> Install-Module -Name MSOnline
+- Azure AD PowerShell for Graph (https://www.powershellgallery.com/packages/AzureAD/2.0.2.76)
+-- via PowerShellGet --> Install-Module -Name AzureAD
+- Restricted Endpoint op de gewenste server (zie ICT-schijf\Software\Scripts\__PowerShell\Scripts)
