@@ -1,8 +1,9 @@
 ﻿<#
-.Synopsis
-   Messagebox tonen
-.EXAMPLE
-   Get-GBMessagebox -Icon Error/Warning/Information/Asterisk/Exclamation/Hand/None/Question/Stop -Buttons OK/OKCancel/YesNo/YesNoCancel -Title TITEL -Message BOODSCHAP
+	Written by wimternet (https://github.com/wimternet)
+    .Synopsis
+	   Messagebox tonen
+	.EXAMPLE
+	   Get-GBMessagebox -Icon Error/Warning/Information/Asterisk/Exclamation/Hand/None/Question/Stop -Buttons OK/OKCancel/YesNo/YesNoCancel -Title TITEL -Message BOODSCHAP
 #>
 function Get-GBMessagebox
 {

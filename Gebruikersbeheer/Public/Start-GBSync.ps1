@@ -1,10 +1,11 @@
 ﻿<#
-.Synopsis
-   Start de synchronisatie met de cloud
-.DESCRIPTION
-   Synchroniseer de lokale AD met AzureAD en met Gsuite
-.EXAMPLE
-   Start-GBSync -Server SERVER -Config CONFIG -Cloud Beide/Azure/Gsuite -TypeSync Delta/Initial/Unspecified
+	Written by wimternet (https://github.com/wimternet)
+    .Synopsis
+	   Start de synchronisatie met de cloud
+	.DESCRIPTION
+	   Synchroniseer de lokale AD met AzureAD en met Gsuite
+	.EXAMPLE
+	   Start-GBSync -Server SERVER -Config CONFIG -Cloud Alle/Azure/Gsuite -TypeSync Delta/Initial/Unspecified
 #>
 function Start-GBSync
 {
@@ -31,14 +32,14 @@ function Start-GBSync
         [string]
         $Config,
 
-        # Cloud: Kiezen welke cloud moet syncen (Beide, Azure, Gsuite)
+        # Cloud: Kiezen welke cloud moet syncen (Alle, Azure, Gsuite)
         [Parameter(Mandatory=$true, 
                    ValueFromPipeline=$true,
                    ValueFromPipelineByPropertyName=$true, 
                    ValueFromRemainingArguments=$false, 
                    Position=2)]
         [ValidateNotNullOrEmpty()]
-        [ValidateSet("Beide", "Azure", "Gsuite")]
+        [ValidateSet("Alle", "Azure", "Gsuite")]
         $Cloud,
 
         # TypeSync: Delta, Initial of Unspecified
@@ -57,9 +58,9 @@ function Start-GBSync
         Write-Verbose -Message 'Begin called Start-GBSync'
 
         # Nodige modules laden
-        If (($Cloud -eq 'Azure') -or ($Cloud -eq 'Beide'))
+        If (($Cloud -eq 'Azure') -or ($Cloud -eq 'Alle'))
         {
-            Write-Verbose -Message 'Het gaat over Azure of Beide'
+            Write-Verbose -Message 'Het gaat over Azure of Alle'
             
             # Verbinding maken met externe pc
             Write-Verbose -Message 'Sessie maken op de externe pc'
@@ -75,18 +76,18 @@ function Start-GBSync
     {
         Write-Verbose -Message 'Process called Start-GBSync'
 
-        If (($Cloud -eq 'Azure') -or ($Cloud -eq 'Beide'))
+        If (($Cloud -eq 'Azure') -or ($Cloud -eq 'Alle'))
         {
-            Write-Verbose -Message 'Het gaat over Azure of Beide'
+            Write-Verbose -Message 'Het gaat over Azure of Alle'
 
             # Sync AzureAD
             Invoke-Command -Session $sAzure -ScriptBlock {Start-ADSyncSyncCycle -PolicyType $TypeSync} -AsJob | Out-Null
             Write-Verbose -Message 'AzureAD sync is gestart'
         }
 
-        If (($Cloud -eq 'Gsuite') -or ($Cloud -eq 'Beide'))
+        If (($Cloud -eq 'Gsuite') -or ($Cloud -eq 'Alle'))
         {
-            Write-Verbose -Message 'Het gaat over Gsuite of Beide'
+            Write-Verbose -Message 'Het gaat over Gsuite of Alle'
 
             # Verbinding maken met externe pc
             Write-Verbose -Message 'Sessie maken op de externe pc'
@@ -110,17 +111,17 @@ function Start-GBSync
         Write-Verbose -Message 'Achtergrondtaken zijn volbracht en opgekuisd'
 
         # Sessie verwijderen
-        If (($Cloud -eq 'Azure') -or ($Cloud -eq 'Beide'))
+        If (($Cloud -eq 'Azure') -or ($Cloud -eq 'Alle'))
         {
-            Write-Verbose -Message 'Het gaat over Azure of Beide'
+            Write-Verbose -Message 'Het gaat over Azure of Alle'
 
             # Verbinding verbreken met externe pc
             Remove-PSSession -Session $sAzure
             Write-Verbose -Message 'Externe sessie afgesloten'
         }
-        If (($Cloud -eq 'Gsuite') -or ($Cloud -eq 'Beide'))
+        If (($Cloud -eq 'Gsuite') -or ($Cloud -eq 'Alle'))
         {
-            Write-Verbose -Message 'Het gaat over Gsuite of Beide'
+            Write-Verbose -Message 'Het gaat over Gsuite of Alle'
 
             # Verbinding verbreken met externe pc
             Remove-PSSession -Session $sGsuite

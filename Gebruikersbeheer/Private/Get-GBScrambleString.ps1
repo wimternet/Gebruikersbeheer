@@ -1,8 +1,9 @@
 ﻿<#
-.Synopsis
-   Rammel de string
-.EXAMPLE
-   Get-GBScrambleString -InputString STRING
+	Written by wimternet (https://github.com/wimternet)
+    .Synopsis
+	   Rammel de string
+	.EXAMPLE
+	   Get-GBScrambleString -InputString STRING
 #>
 function Get-GBScrambleString
 {

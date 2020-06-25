@@ -1,12 +1,13 @@
 ﻿<#
-.Synopsis
-    Nieuwe gebruikers een wachtwoord geven
-.EXAMPLE
-    Dit geeft de gebruikers een wachtwoord van 8 tekens lang met alleen maar kleine letters:
-    Set-GBNewUsersPassword -Lowercase 8
-.EXAMPLE
-    Dit geeft de gebruikers een wachtwoord met 5 kleine letters, 3 hoofdletters, 2 cijfers en 1 speciaal teken:
-    Set-GBNewUsersPassword -Lowercase 5 -Uppercase 3 -Numbers 2 -Special 1
+	Written by wimternet (https://github.com/wimternet)
+    .Synopsis
+		Nieuwe gebruikers een wachtwoord geven
+	.EXAMPLE
+		Dit geeft de gebruikers een wachtwoord van 8 tekens lang met alleen maar kleine letters:
+		Set-GBNewUsersPassword -Lowercase 8
+	.EXAMPLE
+		Dit geeft de gebruikers een wachtwoord met 5 kleine letters, 3 hoofdletters, 2 cijfers en 1 speciaal teken:
+		Set-GBNewUsersPassword -Lowercase 5 -Uppercase 3 -Numbers 2 -Special 1
 #>
 function Set-GBUsersPassword
 {
@@ -15,7 +16,7 @@ function Set-GBUsersPassword
     [OutputType([System.Object[]])]
     Param
     (
-        # Users: Gebruikers aanpassen
+        # Users: Gebruikers om aan te passen
         [Parameter(Mandatory=$true, 
                    ValueFromPipeline=$true,
                    ValueFromPipelineByPropertyName=$true, 

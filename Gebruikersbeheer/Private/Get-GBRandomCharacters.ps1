@@ -1,8 +1,9 @@
 ﻿<#
-.Synopsis
-   Kies willekeurig tussen de aangeboden tekens
-.EXAMPLE
-   $password = Get-GBRandomCharacters -Number 5 -TypeOfCharacters LOWER/UPPER/NUMBERS/SPECIAL
+	Written by wimternet (https://github.com/wimternet)
+    .Synopsis
+	   Kies willekeurig tussen de aangeboden tekens
+	.EXAMPLE
+	   $password = Get-GBRandomCharacters -Number 5 -TypeOfCharacters LOWER/UPPER/NUMBERS/SPECIAL
 #>
 function Get-GBRandomCharacters
 {

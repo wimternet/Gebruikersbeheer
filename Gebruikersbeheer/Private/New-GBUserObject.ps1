@@ -1,8 +1,9 @@
 ﻿<#
-.Synopsis
-   Create a new object
-.EXAMPLE
-   $var = New-GBUserObject -User USEROBJECT -Password PASSWORD
+	Written by wimternet (https://github.com/wimternet)
+    .Synopsis
+	   Create a new object
+	.EXAMPLE
+	   $var = New-GBUserObject -User USEROBJECT -Password PASSWORD
 #>
 function New-GBUserObject
 {

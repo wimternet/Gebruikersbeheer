@@ -1,8 +1,9 @@
 ﻿<#
-.Synopsis
-   Inputbox tonen
-.EXAMPLE
-   $var = Get-GBInputbox -Title TITEL -Message BOODSCHAP
+	Written by wimternet (https://github.com/wimternet)
+    .Synopsis
+	   Inputbox tonen
+	.EXAMPLE
+	   $var = Get-GBInputbox -Title TITEL -Message BOODSCHAP
 #>
 function Get-GBInputbox
 {

@@ -1,4 +1,5 @@
-﻿# Modules
+﻿# Example written by wimternet (https://github.com/wimternet)
+# Modules
 Import-Module -Name Logging
 Import-Module -Name Gebruikersbeheer
 

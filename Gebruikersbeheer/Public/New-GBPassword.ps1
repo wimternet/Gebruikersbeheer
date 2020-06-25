@@ -1,12 +1,13 @@
 ﻿<#
-.Synopsis
-    Wachtwoord genereren
-.EXAMPLE
-    Dit geeft een wachtwoord van 8 tekens lang met alleen maar kleine letters:
-    New-GBPassword -Lowercase 8
-.EXAMPLE
-    Dit geeft een wachtwoord met 5 kleine letters, 3 hoofdletters, 2 cijfers en 1 speciaal teken. Tevens is het wachtwoord leesbaar voor verdere verwerking.
-    New-GBPassword -Lowercase 5 -Uppercase 3 -Numbers 2 -Special 1 -Secure $false
+	Written by wimternet (https://github.com/wimternet)
+    .Synopsis
+		Wachtwoord genereren
+	.EXAMPLE
+		Dit geeft een wachtwoord van 8 tekens lang met alleen maar kleine letters:
+		New-GBPassword -Lowercase 8
+	.EXAMPLE
+		Dit geeft een wachtwoord met 5 kleine letters, 3 hoofdletters, 2 cijfers en 1 speciaal teken. Tevens is het wachtwoord leesbaar voor verdere verwerking.
+		New-GBPassword -Lowercase 5 -Uppercase 3 -Numbers 2 -Special 1 -Secure $false
 #>
 function New-GBPassword
 {
