@@ -36,6 +36,22 @@ function New-GBFormPassword
         $lblUser.location                = New-Object System.Drawing.Point(30,20)
         $lblUser.Font                    = 'Microsoft Sans Serif,10'
 
+        $lblLowercase                    = New-Object system.Windows.Forms.Label
+        $lblLowercase.text               = "Aantal kleine letters:"
+        $lblLowercase.AutoSize           = $true
+        $lblLowercase.width              = 25
+        $lblLowercase.height             = 10
+        $lblLowercase.location           = New-Object System.Drawing.Point(30,45)
+        $lblLowercase.Font               = 'Microsoft Sans Serif,10'
+
+        $lblUppercase                    = New-Object system.Windows.Forms.Label
+        $lblUppercase.text               = "Aantal hoofdletters:"
+        $lblUppercase.AutoSize           = $true
+        $lblUppercase.width              = 25
+        $lblUppercase.height             = 10
+        $lblUppercase.location           = New-Object System.Drawing.Point(30,65)
+        $lblUppercase.Font               = 'Microsoft Sans Serif,10'
+
         # Button
         $btnSave                         = New-Object system.Windows.Forms.Button
         $btnSave.text                    = "Opslaan"
@@ -52,7 +68,7 @@ function New-GBFormPassword
         $btnCancel.Font                  = 'Microsoft Sans Serif,10'
 
         # Add controls to form
-        $frmFormPassword.controls.AddRange(@($lblUser,$btnSave,$btnCancel))
+        $frmFormPassword.controls.AddRange(@($lblUser,$lblLowercase,$lblUppercase,$btnSave,$btnCancel))
 
         # Events
         $btnSave.Add_Click({
