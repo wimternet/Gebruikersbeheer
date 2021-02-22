@@ -22,10 +22,17 @@ function New-GBFormPassword
         Write-Verbose -Message 'Process called New-GBFormPassword'
 
         # Form
-        $frmFormPassword                     = New-Object system.Windows.Forms.Form
-        $frmFormPassword.ClientSize          = '700,400'
-        $frmFormPassword.text                = "Gebruikersbeheer - Wachtwoord"
-        $frmFormPassword.TopMost             = $false
+        $frmFormPassword                 = New-Object system.Windows.Forms.Form
+        $frmFormPassword.ClientSize      = '700,400'
+        $frmFormPassword.text            = "Gebruikersbeheer - Wachtwoord"
+        $frmFormPassword.TopMost         = $false
+
+        # Group box
+        $grpRequirements                 = New-Object System.Windows.Forms.GroupBox
+        $grpRequirements.Location        = New-Object System.Drawing.Size(30,45) 
+        $grpRequirements.size            = New-Object System.Drawing.Size(200,105)
+        $grpRequirements.text            = "Vereisten"
+        $frmFormPassword.Controls.Add($grpRequirements) 
 
         # Label
         $lblUser                         = New-Object system.Windows.Forms.Label
@@ -35,22 +42,68 @@ function New-GBFormPassword
         $lblUser.height                  = 10
         $lblUser.location                = New-Object System.Drawing.Point(30,20)
         $lblUser.Font                    = 'Microsoft Sans Serif,10'
+        $frmFormPassword.Controls.Add($lblUser)
 
         $lblLowercase                    = New-Object system.Windows.Forms.Label
         $lblLowercase.text               = "Aantal kleine letters:"
         $lblLowercase.AutoSize           = $true
         $lblLowercase.width              = 25
         $lblLowercase.height             = 10
-        $lblLowercase.location           = New-Object System.Drawing.Point(30,45)
+        $lblLowercase.location           = New-Object System.Drawing.Point(15,15)
         $lblLowercase.Font               = 'Microsoft Sans Serif,10'
+        $grpRequirements.Controls.Add($lblLowercase)
 
         $lblUppercase                    = New-Object system.Windows.Forms.Label
         $lblUppercase.text               = "Aantal hoofdletters:"
         $lblUppercase.AutoSize           = $true
         $lblUppercase.width              = 25
         $lblUppercase.height             = 10
-        $lblUppercase.location           = New-Object System.Drawing.Point(30,65)
+        $lblUppercase.location           = New-Object System.Drawing.Point(15,35)
         $lblUppercase.Font               = 'Microsoft Sans Serif,10'
+        $grpRequirements.Controls.Add($lblUppercase)
+
+        $lblNumbers                      = New-Object system.Windows.Forms.Label
+        $lblNumbers.text                 = "Aantal cijfers:"
+        $lblNumbers.AutoSize             = $true
+        $lblNumbers.width                = 25
+        $lblNumbers.height               = 10
+        $lblNumbers.location             = New-Object System.Drawing.Point(15,55)
+        $lblNumbers.Font                 = 'Microsoft Sans Serif,10'
+        $grpRequirements.Controls.Add($lblNumbers)
+
+        $lblSpecial                      = New-Object system.Windows.Forms.Label
+        $lblSpecial.text                 = "Aantal speciale tekens:"
+        $lblSpecial.AutoSize             = $true
+        $lblSpecial.width                = 25
+        $lblSpecial.height               = 10
+        $lblSpecial.location             = New-Object System.Drawing.Point(15,75)
+        $lblSpecial.Font                 = 'Microsoft Sans Serif,10'
+        $grpRequirements.Controls.Add($lblSpecial)
+
+        # Textbox
+        $txtLowercase                    = New-Object System.Windows.Forms.TextBox
+        $txtLowercase.Location           = New-Object System.Drawing.Point(165,15)
+        $txtLowercase.Size               = New-Object System.Drawing.Size(20,20)
+        $txtLowercase.Multiline          = $false
+        $grpRequirements.Controls.Add($txtLowercase)
+
+        $txtUppercase                    = New-Object System.Windows.Forms.TextBox
+        $txtUppercase.Location           = New-Object System.Drawing.Point(165,35)
+        $txtUppercase.Size               = New-Object System.Drawing.Size(20,20)
+        $txtUppercase.Multiline          = $false
+        $grpRequirements.Controls.Add($txtUppercase)
+
+        $txtNumbers                      = New-Object System.Windows.Forms.TextBox
+        $txtNumbers.Location             = New-Object System.Drawing.Point(165,55)
+        $txtNumbers.Size                 = New-Object System.Drawing.Size(20,20)
+        $txtNumbers.Multiline            = $false
+        $grpRequirements.Controls.Add($txtNumbers)
+
+        $txtSpecial                      = New-Object System.Windows.Forms.TextBox
+        $txtSpecial.Location             = New-Object System.Drawing.Point(165,75)
+        $txtSpecial.Size                 = New-Object System.Drawing.Size(20,20)
+        $txtSpecial.Multiline            = $false
+        $grpRequirements.Controls.Add($txtSpecial)
 
         # Button
         $btnSave                         = New-Object system.Windows.Forms.Button
@@ -59,6 +112,7 @@ function New-GBFormPassword
         $btnSave.height                  = 30
         $btnSave.location                = New-Object System.Drawing.Point(600,345)
         $btnSave.Font                    = 'Microsoft Sans Serif,10'
+        $frmFormPassword.Controls.Add($btnSave)
 
         $btnCancel                       = New-Object system.Windows.Forms.Button
         $btnCancel.text                  = "Annuleren"
@@ -66,9 +120,7 @@ function New-GBFormPassword
         $btnCancel.height                = 30
         $btnCancel.location              = New-Object System.Drawing.Point(500,345)
         $btnCancel.Font                  = 'Microsoft Sans Serif,10'
-
-        # Add controls to form
-        $frmFormPassword.controls.AddRange(@($lblUser,$lblLowercase,$lblUppercase,$btnSave,$btnCancel))
+        $frmFormPassword.Controls.Add($btnCancel)
 
         # Events
         $btnSave.Add_Click({
