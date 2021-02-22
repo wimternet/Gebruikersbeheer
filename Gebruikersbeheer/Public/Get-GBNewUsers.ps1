@@ -37,7 +37,7 @@ function Get-GBNewUsers
 
         # Gebruikers zonder licentie in Microsoft 365 ophalen (= nieuwe gebruikers)
         Write-Verbose -Message 'Nieuwe gebruikers zoeken'
-        $arrUsers = Get-MsolUser -All -UnlicensedUsersOnly -Synchronized | Where-Object {$_.UserPrincipalName -like $MailSuffix}
+        $Script:Users = Get-MsolUser -All -UnlicensedUsersOnly -Synchronized | Where-Object {$_.UserPrincipalName -like $MailSuffix}
     }
     End
     {
@@ -45,6 +45,6 @@ function Get-GBNewUsers
 
         # Gebruikers verzenden
         Write-Verbose -Message 'Nieuwe gebruikers verzenden'
-        Return $arrUsers
+        Return $Script:Users
     }
 }
