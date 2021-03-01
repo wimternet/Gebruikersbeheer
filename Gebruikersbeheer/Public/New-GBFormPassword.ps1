@@ -30,7 +30,7 @@ function New-GBFormPassword
         # Group box
         $grpRequirements                 = New-Object System.Windows.Forms.GroupBox
         $grpRequirements.Location        = New-Object System.Drawing.Size(30,45) 
-        $grpRequirements.size            = New-Object System.Drawing.Size(200,105)
+        $grpRequirements.size            = New-Object System.Drawing.Size(200,125)
         $grpRequirements.text            = "Vereisten"
         $frmFormPassword.Controls.Add($grpRequirements) 
 
@@ -105,6 +105,12 @@ function New-GBFormPassword
         $txtSpecial.Multiline            = $false
         $grpRequirements.Controls.Add($txtSpecial)
 
+        # Radiobutton
+        $chkSecure                       = New-Object System.Windows.Forms.CheckBox
+        $chkSecure.Location              = New-Object System.Drawing.Point(15,95)
+        $chkSecure.Text                  = "Verborgen"
+        $grpRequirements.Controls.Add($chkSecure)
+
         # Button
         $btnSave                         = New-Object system.Windows.Forms.Button
         $btnSave.text                    = "Opslaan"
@@ -124,7 +130,7 @@ function New-GBFormPassword
 
         # Events
         $btnSave.Add_Click({
-            $Script:Password = New-GBPassword -Lowercase 5 -Secure $false
+            $Script:Password = New-GBPassword -Lowercase $txtLowercase.Text -Uppercase $txtUppercase.Text -Numbers $txtNumbers.Text -Special $txtSpecial.Text -Secure $chkSecure.Checked
             $frmFormPassword.Close()
         })
 
