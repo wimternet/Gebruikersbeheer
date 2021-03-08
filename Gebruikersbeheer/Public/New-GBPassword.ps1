@@ -96,7 +96,6 @@ function New-GBPassword
         {
             # GUI oproepen
             Write-Verbose -Message "Formulier openen"
-            Write-Host "De GUI wordt opgeroepen."
 
             # Variabele aanpassen en functie aanroepen
             $password = New-GBFormPassword
@@ -130,7 +129,7 @@ function New-GBPassword
         If ($Form)
         {
             Write-Verbose -Message $Script:Password
-            $Script:Password
+            Return $Script:Password
         } Else {
             Write-Verbose -Message $temp
             $Script:Password = $temp

@@ -23,7 +23,7 @@ function New-GBFormPassword
 
         # Form
         $frmFormPassword                 = New-Object system.Windows.Forms.Form
-        $frmFormPassword.ClientSize      = '700,400'
+        $frmFormPassword.ClientSize      = '350,180'
         $frmFormPassword.text            = "Gebruikersbeheer - Wachtwoord"
         $frmFormPassword.TopMost         = $false
 
@@ -114,9 +114,9 @@ function New-GBFormPassword
         # Button
         $btnSave                         = New-Object system.Windows.Forms.Button
         $btnSave.text                    = "Opslaan"
-        $btnSave.width                   = 65
+        $btnSave.width                   = 80
         $btnSave.height                  = 30
-        $btnSave.location                = New-Object System.Drawing.Point(600,345)
+        $btnSave.location                = New-Object System.Drawing.Point(250,140)
         $btnSave.Font                    = 'Microsoft Sans Serif,10'
         $frmFormPassword.Controls.Add($btnSave)
 
@@ -124,7 +124,7 @@ function New-GBFormPassword
         $btnCancel.text                  = "Annuleren"
         $btnCancel.width                 = 80
         $btnCancel.height                = 30
-        $btnCancel.location              = New-Object System.Drawing.Point(500,345)
+        $btnCancel.location              = New-Object System.Drawing.Point(250,110)
         $btnCancel.Font                  = 'Microsoft Sans Serif,10'
         $frmFormPassword.Controls.Add($btnCancel)
 
