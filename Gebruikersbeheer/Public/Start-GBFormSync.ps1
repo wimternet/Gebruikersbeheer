@@ -53,12 +53,28 @@ function Start-GBFormSync
         $lblServer.Font               = 'Microsoft Sans Serif,10'
         $grpOptions.Controls.Add($lblServer)
 
+        $lblConfig                    = New-Object system.Windows.Forms.Label
+        $lblConfig.text               = "Config:"
+        $lblConfig.AutoSize           = $true
+        $lblConfig.width              = 25
+        $lblConfig.height             = 10
+        $lblConfig.location           = New-Object System.Drawing.Point(15,35)
+        $lblConfig.Font               = 'Microsoft Sans Serif,10'
+        $grpOptions.Controls.Add($lblConfig)
+
         # Textbox
         $txtServer                    = New-Object System.Windows.Forms.TextBox
         $txtServer.Location           = New-Object System.Drawing.Point(100,15)
         $txtServer.Size               = New-Object System.Drawing.Size(50,20)
         $txtServer.Multiline          = $false
         $grpOptions.Controls.Add($txtServer)
+
+        $txtConfig                    = New-Object System.Windows.Forms.TextBox
+        $txtConfig.Location           = New-Object System.Drawing.Point(100,35)
+        $txtConfig.Size               = New-Object System.Drawing.Size(50,20)
+        $txtConfig.Multiline          = $false
+        $txtConfig.Text               = "IT"
+        $grpOptions.Controls.Add($txtConfig)
         
         # Radiobutton
         
@@ -81,7 +97,7 @@ function Start-GBFormSync
 
         # Events
         $btnSave.Add_Click({
-            Get-GBMessagebox -Icon Information -Button OK -Title "Goed zo!" -Message ("De sync is 'vertrokken' op server " + $txtServer.Text)
+            Get-GBMessagebox -Icon Information -Button OK -Title "Goed zo!" -Message ("De sync is 'vertrokken' op server '" + $txtServer.Text + "' met config '" + $txtConfig.Text + "'")
             $frmFormSync.Close()
         })
 
