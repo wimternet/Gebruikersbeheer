@@ -81,7 +81,7 @@ function Start-GBFormSync
 
         # Events
         $btnSave.Add_Click({
-            Get-GBMessagebox -Icon Information -Button OK -Title "Goed zo!" -Message "De sync is 'vertrokken' op server " . $txtServer.Text
+            Get-GBMessagebox -Icon Information -Button OK -Title "Goed zo!" -Message ("De sync is 'vertrokken' op server " + $txtServer.Text)
             $frmFormSync.Close()
         })
 
