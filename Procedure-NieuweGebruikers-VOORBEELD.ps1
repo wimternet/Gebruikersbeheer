@@ -48,6 +48,12 @@ Write-Log -Boodschap "Wachtwoorden resetten en exporteren naar csv" -Bestand "$S
 Set-GBUsersPassword -Users $lln -Lowercase 7 -Uppercase 1 -Numbers 2 -Special 0 | Select-Object FirstName,LastName,Mail,Password,ObjectID | Export-Csv -Path "$temppath\lln.csv"
 Set-GBUsersPassword -Users $lkr -Lowercase 7 -Uppercase 1 -Numbers 2 -Special 0 | Select-Object FirstName,LastName,Mail,Password,ObjectID | Export-Csv -Path "$temppath\lkr.csv"
 
+###############################################################################################################################
+## Deprecated (Het is nu mogelijk om licenties toe te kennen aan groepen via de Azure Portal).                               ##
+## Info: https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal ##
+###############################################################################################################################
+
+<#
 # Licenties bijweren
 Write-Log -Boodschap "Licentiebestanden bijwerken en wegschrijven" -Bestand "$ScriptDir\$logfile"
 New-GBFormLicenses -fileTeachers "$temppath\licLKR.csv" -fileStudents "$temppath\licLLN.csv" | Out-Null
@@ -56,6 +62,11 @@ New-GBFormLicenses -fileTeachers "$temppath\licLKR.csv" -fileStudents "$temppath
 Write-Log -Boodschap "Licenties toepassen a.h.v. de licentiesbestanden" -Bestand "$ScriptDir\$logfile"
 Set-GBUSersLicenses -Users $lkr -FileLicenses "$temppath\licLKR.csv"
 Set-GBUSersLicenses -Users $lln -FileLicenses "$temppath\licLLN.csv"
+#>
+
+####################
+## End Deprecated ##
+####################
 
 # CSV's worden verstuurd
 Write-Log -Boodschap "Csv versturen per mail" -Bestand "$ScriptDir\$logfile"
