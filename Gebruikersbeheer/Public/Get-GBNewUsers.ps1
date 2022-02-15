@@ -38,6 +38,15 @@ function Get-GBNewUsers
         # Gebruikers zonder licentie in Microsoft 365 ophalen (= nieuwe gebruikers)
         Write-Verbose -Message 'Nieuwe gebruikers zoeken'
         $Script:Users = Get-MsolUser -All -UnlicensedUsersOnly -Synchronized | Where-Object {$_.UserPrincipalName -like $MailSuffix}
+
+
+        <#
+            Huidig gedacht gaat naar: Get-AzureADUser | Where-Object {$_.UserPrincipalName -like "*@someemail.com"}
+            Hierbij moet er nog worden gefilterd op aanmaakdatum
+
+            Mogelijkheid:
+                https://docs.microsoft.com/en-us/answers/questions/179029/get-all-azure-ad-users-which-are-updated-in-the-pa.html
+        #>
     }
     End
     {
