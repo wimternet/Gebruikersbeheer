@@ -45,7 +45,10 @@ function Get-GBNewUsers
             Hierbij moet er nog worden gefilterd op aanmaakdatum
 
             Mogelijkheid:
-                https://docs.microsoft.com/en-us/answers/questions/179029/get-all-azure-ad-users-which-are-updated-in-the-pa.html
+                1) https://docs.microsoft.com/en-us/answers/questions/179029/get-all-azure-ad-users-which-are-updated-in-the-pa.html
+                        Past 24 hours
+                2) https://docs.microsoft.com/en-us/azure/active-directory/hybrid/reference-connect-adsync
+                       Get last sync cycle
         #>
     }
     End
