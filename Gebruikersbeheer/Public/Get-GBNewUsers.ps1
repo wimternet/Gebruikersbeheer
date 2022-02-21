@@ -47,6 +47,21 @@ function Get-GBNewUsers
             Mogelijkheid:
                 1) https://docs.microsoft.com/en-us/answers/questions/179029/get-all-azure-ad-users-which-are-updated-in-the-pa.html
                         Past 24 hours
+                        createdDateTime
+                        Get-AzureADUser --> objectID + te bewaren
+                        Get-AzureADUserExtension --> indien createdDateTime klopt
+
+                        Get-AzureADUser | Where {$_.LastDirSyncTime -gt (Get-Date).AddDays(-1)}
+
+
+
+                        $Everyone = Get-AzureADUser -All $true
+                        Foreach( $Account in $Everyone )
+                        {
+                            (Get-AzureADUserExtension -ObjectID ($Account).ObjectID).createdDateTime
+                        }
+
+
                 2) https://docs.microsoft.com/en-us/azure/active-directory/hybrid/reference-connect-adsync
                        Get last sync cycle
         #>
